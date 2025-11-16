@@ -7,38 +7,15 @@ import InvitationCard from "@/Workspace/Zad7/InvitationCard";
 import DataTimer from "@/Workspace/Zad8/DataTimer";
 import {useEffect, useState} from "react";
 import DataTimer2 from "@/Workspace/Zad9/DataTimer2";
-
-export interface InviteData {
-    date: string;
-    time: string;
-    location: string;
-    dressCode: string;
-}
-
-const inviteData: InviteData = {
-    date: "12 czerwca 2025",
-    time: "18:00",
-    location: "Warszawa, ul. Kwiatowa 15",
-    dressCode: "Elegancki / Smart Casual",
-};
-
+import RandomNumberGenerator from "@/Workspace/Zad10/RandomNumberGenerator";
 export default function TabOneScreen() {
-    const [currentTime, setCurrentTime] = useState<string>(
-        new Date().toLocaleTimeString()
-    );
-
-    // 2️⃣ Hook useEffect z setInterval
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setCurrentTime(new Date().toLocaleTimeString());
-        }, 1000);
-
-        return () => clearInterval(intervalId);
-    }, []);
+    const [randomNumber, setRandomNumber] = useState<number>(0);
 
     return (
         <View style={styles.container}>
-            <DataTimer2 currentTime={currentTime} />
+            <h3>Aktualna liczba: {randomNumber}</h3>
+
+            <RandomNumberGenerator setNumber={setRandomNumber} />
         </View>
     );
 }
