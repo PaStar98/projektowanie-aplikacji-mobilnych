@@ -4,6 +4,7 @@ import { View } from '@/components/Themed';
 import UserName from "@/Workspace/Zad5/UserName";
 import UserSurname from "@/Workspace/Zad5/UserSurname";
 import InvitationCard from "@/Workspace/Zad7/InvitationCard";
+import DataTimer from "@/Workspace/Zad8/DataTimer";
 
 export interface InviteData {
     date: string;
@@ -20,14 +21,11 @@ const inviteData: InviteData = {
 };
 
 export default function TabOneScreen() {
+    const initialDateTime = new Date().toLocaleString();
+
   return (
     <View style={styles.container}>
-        <InvitationCard
-            date={inviteData.date}
-            time={inviteData.time}
-            location={inviteData.location}
-            dressCode={inviteData.dressCode}
-        />
+        <DataTimer currentTime={initialDateTime} />
     </View>
   );
 }
