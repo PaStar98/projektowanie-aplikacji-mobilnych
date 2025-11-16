@@ -1,13 +1,15 @@
 import { StyleSheet } from 'react-native';
 import HooksExamples from '@/components/HooksExamples';
 import { View } from '@/components/Themed';
-import MapImage from "@/Workspace/MapImage";
-import StyledPizzaText from "@/Workspace/StyledPizzaText";
-import FlexLayoutExample from "@/Workspace/FlexLayoutEx";
+import UserName from "@/Workspace/Zad4/UserName";
+import UserSurname from "@/Workspace/Zad4/UserSurname";
 
 export default function TabOneScreen() {
   return (
-    <FlexLayoutExample />
+    <View style={styles.container}>
+        <UserName name="Patryk" />
+        <UserSurname surname="Startek" />
+    </View>
   );
 }
 
