@@ -6,6 +6,7 @@ import UserSurname from "@/Workspace/Zad5/UserSurname";
 import InvitationCard from "@/Workspace/Zad7/InvitationCard";
 import DataTimer from "@/Workspace/Zad8/DataTimer";
 import {useEffect, useState} from "react";
+import DataTimer2 from "@/Workspace/Zad9/DataTimer2";
 
 export interface InviteData {
     date: string;
@@ -37,7 +38,7 @@ export default function TabOneScreen() {
 
     return (
         <View style={styles.container}>
-            <DataTimer currentTime={currentTime} />
+            <DataTimer2 currentTime={currentTime} />
         </View>
     );
 }
