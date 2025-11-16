@@ -1,0 +1,16 @@
+import React from 'react';
+import { Text } from 'react-native';
+
+interface DataTimerProps {
+    currentTime: string;
+}
+
+const DataTimer2: React.FC<DataTimerProps> = ({ currentTime }) => {
+    return (
+        <Text style={{ fontSize: 18 }}>
+            Aktualny czas: {currentTime}
+        </Text>
+    );
+};
+
+export default DataTimer2;
