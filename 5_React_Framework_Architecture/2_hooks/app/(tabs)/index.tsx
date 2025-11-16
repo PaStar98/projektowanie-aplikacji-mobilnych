@@ -3,10 +3,11 @@ import HooksExamples from '@/components/HooksExamples';
 import { View } from '@/components/Themed';
 import MapImage from "@/Workspace/MapImage";
 import StyledPizzaText from "@/Workspace/StyledPizzaText";
+import FlexLayoutExample from "@/Workspace/FlexLayoutEx";
 
 export default function TabOneScreen() {
   return (
-    <StyledPizzaText />
+    <FlexLayoutExample />
   );
 }
 
