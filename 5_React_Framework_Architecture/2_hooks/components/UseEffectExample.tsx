@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 
 const capitals = [
   {
@@ -22,9 +22,6 @@ const UseEffectExample: React.FC = () => {
   const [input, setInput] = useState("");
   const [time, setTime] = useState(0);
 
-  // Reset error information when moving to next question
-
-
   // Timer effect
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,11 +34,16 @@ const UseEffectExample: React.FC = () => {
   }, []);
 
   const checkAnswer = () => {
-    setCorrectAnswer(input.toLowerCase() === capitals[currentQuestion].capital.toLowerCase());
+    setCorrectAnswer(
+        input.trim().toLowerCase() ===
+        capitals[currentQuestion].capital.toLowerCase()
+    );
   };
 
   const nextQuestion = () => {
     setCurrentQuestion((prev) => (prev + 1) % capitals.length);
+    setCorrectAnswer(null);   // wyczyszczenie informacji o poprzedniej odpowiedzi
+    setInput("");             // wyczyszczenie inputa (opcjonalne, ale logiczne)
   };
 
   const getAnswerFeedback = () => {
@@ -51,33 +53,33 @@ const UseEffectExample: React.FC = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.question}>
-        The capital of {capitals[currentQuestion].country} is?
-      </Text>
-      
-      <TextInput
-        style={styles.input}
-        value={input}
-        onChangeText={setInput}
-        placeholder="Enter capital city..."
-        autoCapitalize="words"
-      />
-      
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.checkButton} onPress={checkAnswer}>
-          <Text style={styles.buttonText}>Check Answer</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity style={styles.nextButton} onPress={nextQuestion}>
-          <Text style={styles.buttonText}>Next Question</Text>
-        </TouchableOpacity>
+      <View style={styles.container}>
+        <Text style={styles.question}>
+          The capital of {capitals[currentQuestion].country} is?
+        </Text>
+
+        <TextInput
+            style={styles.input}
+            value={input}
+            onChangeText={setInput}
+            placeholder="Enter capital city..."
+            autoCapitalize="words"
+        />
+
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.checkButton} onPress={checkAnswer}>
+            <Text style={styles.buttonText}>Check Answer</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.nextButton} onPress={nextQuestion}>
+            <Text style={styles.buttonText}>Next Question</Text>
+          </TouchableOpacity>
+        </View>
+
+        <Text style={styles.feedback}>{getAnswerFeedback()}</Text>
+
+        <Text style={styles.timer}>Time: {time}s</Text>
       </View>
-      
-      <Text style={styles.feedback}>{getAnswerFeedback()}</Text>
-      
-      <Text style={styles.timer}>Time: {time}s</Text>
-    </View>
   );
 };
 

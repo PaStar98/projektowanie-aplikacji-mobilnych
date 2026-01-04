@@ -9,12 +9,13 @@ import {useEffect, useState} from "react";
 import DataTimer2 from "@/Workspace/Zad9/DataTimer2";
 import RandomNumberGenerator from "@/Workspace/Zad10/RandomNumberGenerator";
 import UseStateExample from "@/components/UseStateExample";
+import UseEffectExample from "@/components/UseEffectExample";
 export default function TabOneScreen() {
     const [randomNumber, setRandomNumber] = useState<number>(0);
 
     return (
         <View style={styles.container}>
-            <UseStateExample />
+            <UseEffectExample />
         </View>
     );
 }
