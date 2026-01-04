@@ -15,12 +15,13 @@ import ForwardRefExample from "@/components/ForwardRefExample";
 import UseReducerExample from "@/components/UseReducerExample";
 import UseDeferredValueExample from "@/components/UseDeferredValueExample";
 import UseMemoExample from "@/components/UseMemoExample";
+import UseCallbackExample from "@/components/UseCallbackExample";
 export default function TabOneScreen() {
     const [randomNumber, setRandomNumber] = useState<number>(0);
 
     return (
         <View style={styles.container}>
-            <UseMemoExample />
+            <UseCallbackExample />
         </View>
     );
 }

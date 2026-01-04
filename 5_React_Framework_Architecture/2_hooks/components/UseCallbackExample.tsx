@@ -22,9 +22,10 @@ const UseCallbackExample: React.FC = () => {
 
   // Using useCallback to memoize the function
   // This prevents the Child component from re-rendering on every timer update
-  const memoizedCallback = () => {
+  const memoizedCallback = useCallback(() => {
     return Math.pow(200, 20);
-  } // Empty dependency array means this function never changes
+  }, []);
+
 
   // Without useCallback (commented out for comparison):
   // const nonMemoizedCallback = () => {
