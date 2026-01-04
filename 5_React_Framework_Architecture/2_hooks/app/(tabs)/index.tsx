@@ -8,14 +8,13 @@ import DataTimer from "@/Workspace/Zad8/DataTimer";
 import {useEffect, useState} from "react";
 import DataTimer2 from "@/Workspace/Zad9/DataTimer2";
 import RandomNumberGenerator from "@/Workspace/Zad10/RandomNumberGenerator";
+import UseStateExample from "@/components/UseStateExample";
 export default function TabOneScreen() {
     const [randomNumber, setRandomNumber] = useState<number>(0);
 
     return (
         <View style={styles.container}>
-            <h3>Aktualna liczba: {randomNumber}</h3>
-
-            <RandomNumberGenerator setNumber={setRandomNumber} />
+            <UseStateExample />
         </View>
     );
 }
