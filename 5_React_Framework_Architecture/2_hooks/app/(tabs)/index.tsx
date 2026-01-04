@@ -10,12 +10,15 @@ import DataTimer2 from "@/Workspace/Zad9/DataTimer2";
 import RandomNumberGenerator from "@/Workspace/Zad10/RandomNumberGenerator";
 import UseStateExample from "@/components/UseStateExample";
 import UseEffectExample from "@/components/UseEffectExample";
+import UseRefExample from "@/components/UseRefExample";
+import ForwardRefExample from "@/components/ForwardRefExample";
+import UseReducerExample from "@/components/UseReducerExample";
 export default function TabOneScreen() {
     const [randomNumber, setRandomNumber] = useState<number>(0);
 
     return (
         <View style={styles.container}>
-            <UseEffectExample />
+            <UseReducerExample />
         </View>
     );
 }
